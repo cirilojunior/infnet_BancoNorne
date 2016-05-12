@@ -18,11 +18,7 @@ namespace Domain.Perfis
 
         public Pessoa Pessoa { get; private set; }
 
-        public int Numero
-        {
-            get { return numero; }
-            set { numero = value; }
-        }
+        public int Numero { get; private set; }
 
     }
 }

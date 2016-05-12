@@ -8,5 +8,6 @@ namespace Domain.Produtos
 {
     public class Produto
     {
+        public long Codigo { get; set; }
     }
 }
