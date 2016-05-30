@@ -51,12 +51,12 @@
     <Compile Include="Produtos\ContaSalario.cs" />
     <Compile Include="Produtos\Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Perfis\Cliente.cs" />
-    <Compile Include="Perfis\Funcionario.cs" />
-    <Compile Include="Perfis\Gerente.cs" />
-    <Compile Include="Perfis\Pessoa.cs" />
-    <Compile Include="Perfis\PessoaFisica.cs" />
-    <Compile Include="Perfis\PessoaJuridica.cs" />
+    <Compile Include="Usuarios\Cliente.cs" />
+    <Compile Include="Usuarios\Funcionario.cs" />
+    <Compile Include="Usuarios\Gerente.cs" />
+    <Compile Include="Usuarios\Pessoa.cs" />
+    <Compile Include="Usuarios\PessoaFisica.cs" />
+    <Compile Include="Usuarios\PessoaJuridica.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

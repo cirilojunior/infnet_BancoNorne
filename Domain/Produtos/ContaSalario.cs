@@ -1,4 +1,4 @@
-﻿using Domain.Perfis;
+﻿using Domain.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
