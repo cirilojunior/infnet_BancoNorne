@@ -8,20 +8,8 @@ namespace Domain.Usuarios
 {
     class PessoaJuridica : Pessoa
     {
-        private string cnpj;
-        private string razaoSocial;
-
-        public string Cnpj
-        {
-            get { return cnpj; }
-            set { cnpj = value; }
-        }
-
-        public string RazaoSocial
-        {
-            get { return razaoSocial; }
-            set { razaoSocial = value; }
-        }
-
+        public string Cnpj { get; set; }
+        public string razaoSocial { get; set; }
+        public double faturamentoAnual { get; set; }
     }
 }

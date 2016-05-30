@@ -9,32 +9,16 @@ namespace Domain.Operacoes
     class Operacao
     {
 
-        public enum Tipo
+        public enum Natureza
         {
             CREDITO, DEBITO
         }
 
-        private DateTime data;
-        private double valor;
-        private Tipo natureza;
+        public DateTime Data { get; set; }
 
-        public DateTime Data
-        {
-            get { return data; }
-            set { data = value; }
-        }
+        public double Valor { get; set; }
 
-        public double Valor
-        {
-            get { return valor; }
-            set { valor = value; }
-        }
-
-        public Tipo Natureza
-        {
-            get { return natureza; }
-            set { natureza = value; }
-        }
+        public Natureza Natureza { get; set; }
 
     }
 }

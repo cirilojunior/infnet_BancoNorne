@@ -40,18 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Indices\RendimentoPoupanca.cs" />
-    <Compile Include="Indices\TaxaReferencia.cs" />
-    <Compile Include="Indices\ValorIndice.cs" />
     <Compile Include="Operacoes\Operacao.cs" />
+    <Compile Include="Produtos\AdesaoProduto.cs" />
+    <Compile Include="Produtos\Conta.cs" />
     <Compile Include="Produtos\ContaCorrente.cs" />
     <Compile Include="Produtos\ContaEletronica.cs" />
     <Compile Include="Produtos\ContaEletronicaEspecial.cs" />
     <Compile Include="Produtos\ContaPoupanca.cs" />
     <Compile Include="Produtos\ContaSalario.cs" />
+    <Compile Include="Produtos\ContaService.cs" />
     <Compile Include="Produtos\Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios\Cliente.cs" />
+    <Compile Include="Usuarios\Contatos\Contato.cs" />
+    <Compile Include="Usuarios\Contatos\Endereco.cs" />
     <Compile Include="Usuarios\Funcionario.cs" />
     <Compile Include="Usuarios\Gerente.cs" />
     <Compile Include="Usuarios\Pessoa.cs" />

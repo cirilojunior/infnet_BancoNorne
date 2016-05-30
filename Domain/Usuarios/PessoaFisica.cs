@@ -8,27 +8,9 @@ namespace Domain.Usuarios
 {
     class PessoaFisica : Pessoa
     {
-        private string cpf;
-        private string identidade;
-        private string nome;
-
-        public string Identidade
-        {
-            get { return identidade; }
-            set { identidade = value; }
-        }
-
-        public string Cpf
-        {
-            get { return cpf; }
-            set { cpf = value; }
-        }
-
-        public string Nome
-        {
-            get { return nome; }
-            set { nome = value; }
-        }
-
+        public string Cpf { get; set; }
+        public string Identidade { get; set; }
+        public string Nome { get; set; }
+        public double rendaMensal { get; set; }
     }
 }

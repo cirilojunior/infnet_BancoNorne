@@ -7,23 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Produtos
 {
-    class ContaCorrente : Produto
+    class ContaCorrente : Conta
     {
-        private double saldo;
-        private List<Operacao> operacoes;
-
-        public double Saldo
-        {
-            get { return saldo; }
-            set { saldo = value; }
-        }
-
-        public List<Operacao> Operacoes
-        {
-            get { return operacoes; }
-            set { operacoes = value; }
-        }
-
-
     }
 }
