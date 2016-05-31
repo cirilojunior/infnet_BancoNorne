@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Produtos
 {
-    class ContaSalario : ContaCorrente
+    interface ContaRepository
     {
-
-        public PessoaJuridica FontePagadora{ get; set; }
-
+        List<Conta> listar();
+        Conta salvar(Conta conta);
+        Conta recuperar(Cliente cliente);
     }
 }

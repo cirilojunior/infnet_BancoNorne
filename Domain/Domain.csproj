@@ -47,6 +47,7 @@
     <Compile Include="Produtos\ContaEletronica.cs" />
     <Compile Include="Produtos\ContaEletronicaEspecial.cs" />
     <Compile Include="Produtos\ContaPoupanca.cs" />
+    <Compile Include="Produtos\ContaRepository.cs" />
     <Compile Include="Produtos\ContaSalario.cs" />
     <Compile Include="Produtos\ContaService.cs" />
     <Compile Include="Produtos\Produto.cs" />

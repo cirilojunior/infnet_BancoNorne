@@ -8,12 +8,29 @@ namespace Domain.Produtos
 {
     class ContaEletronicaEspecial : ContaEletronica
     {
-        private double limiteChequeEspecial;
+        public decimal LimiteChequeEspecial { get; set; }
+        public decimal LimiteUtilizado { get; set; }
 
-        public double LimiteChequeEspecial
+        public override decimal Retirar(decimal valor)
         {
-            get { return limiteChequeEspecial; }
-            set { limiteChequeEspecial = value; }
+            if (valor > Saldo)
+            {
+                decimal saldoNegativo = valor - Saldo;
+                decimal limiteDisponivel = LimiteChequeEspecial - LimiteUtilizado;
+
+                if (saldoNegativo > limiteDisponivel)
+                {
+                    throw new Exception("Saldo insuficiente para realizar uma retirada.");
+                }
+
+                Saldo = 0;
+                LimiteUtilizado -= saldoNegativo;
+                return Saldo;
+            }
+            else
+            {
+                return base.Retirar(valor);
+            }           
         }
 
     }
