@@ -12,17 +12,30 @@ namespace Domain.Produtos
     {
 
         private ContaRepository contaRepository;
+        private ClienteRepository clienteRepository;
+        private AdesaoProdutoRepository adesaoProdutoRepository;
 
-        public ContaService(ContaRepository contaRepository)
+        public ContaService(ContaRepository contaRepository,
+                            ClienteRepository clienteRepository,
+                            AdesaoProdutoRepository adesaoProdutoRepository)
         {
             this.contaRepository = contaRepository;
+            this.clienteRepository = clienteRepository;
+            this.adesaoProdutoRepository = adesaoProdutoRepository;
         }
 
         public Conta Abrir(Conta.TipoConta tipo, Pessoa pessoa)
         {
+            Cliente novoCliente = new Cliente(pessoa);
+            clienteRepository.salvar(novoCliente);
+
             Conta novaConta = new Conta();
-            contaRepository.salvar(novaConta);
-            return novaConta;
+            novaConta.Tipo = tipo;
+            novaConta.SituacaoCriacao = Conta.SituacaoCriacaoConta.PENDENTE_APROVACAO;
+            novaConta.Saldo = 0;
+            novaConta.Cliente = novoCliente;
+            
+            return contaRepository.salvar(novaConta);
         }
 
         public AdesaoProduto Aprovar(Produto produto, Cliente cliente)
@@ -30,8 +43,12 @@ namespace Domain.Produtos
             Conta conta = contaRepository.recuperar(cliente);
             conta.SituacaoCriacao = Conta.SituacaoCriacaoConta.APROVADA;
             contaRepository.salvar(conta);
+            
             AdesaoProduto adesao = new AdesaoProduto();
-            return adesao;
+            adesao.Produto = produto;
+            adesao.Cliente = cliente;
+            adesao.Data = DateTime.Today;
+            return adesaoProdutoRepository.salvar(adesao);
         }
 
         public void Reprovar(Produto produto, Cliente cliente)

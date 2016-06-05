@@ -9,16 +9,18 @@ namespace Domain.Operacoes
     class Operacao
     {
 
-        public enum Natureza
+        public enum NaturezaOperacao
         {
             CREDITO, DEBITO
         }
 
+        public string codigoTransacao { get; set; }
+
         public DateTime Data { get; set; }
 
-        public double Valor { get; set; }
+        public decimal Valor { get; set; }
 
-        public Natureza Natureza { get; set; }
+        public NaturezaOperacao Natureza { get; set; }
 
     }
 }

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Operacoes\Operacao.cs" />
     <Compile Include="Produtos\AdesaoProduto.cs" />
+    <Compile Include="Produtos\AdesaoProdutoRepository.cs" />
     <Compile Include="Produtos\Conta.cs" />
     <Compile Include="Produtos\ContaCorrente.cs" />
     <Compile Include="Produtos\ContaEletronica.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Produtos\Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios\Cliente.cs" />
+    <Compile Include="Usuarios\ClienteRepository.cs" />
     <Compile Include="Usuarios\Contatos\Contato.cs" />
     <Compile Include="Usuarios\Contatos\Endereco.cs" />
     <Compile Include="Usuarios\Funcionario.cs" />

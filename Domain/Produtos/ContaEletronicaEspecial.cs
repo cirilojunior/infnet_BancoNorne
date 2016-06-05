@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Operacoes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,7 @@ namespace Domain.Produtos
 
                 Saldo = 0;
                 LimiteUtilizado -= saldoNegativo;
+                registrarOperacao(Operacao.NaturezaOperacao.DEBITO, valor);
                 return Saldo;
             }
             else

@@ -36,6 +36,7 @@ namespace Domain.Produtos
         public decimal Depositar(decimal valor)
         {
             Saldo += valor;
+            registrarOperacao(Operacao.NaturezaOperacao.CREDITO, valor);
             return Saldo;
         }
 
@@ -46,7 +47,19 @@ namespace Domain.Produtos
                 throw new Exception("Saldo insuficiente para realizar uma retirada.");
             }
             Saldo -= valor;
+            registrarOperacao(Operacao.NaturezaOperacao.DEBITO, valor);
             return Saldo;
+        }
+
+        protected void registrarOperacao(Operacao.NaturezaOperacao natureza, decimal valor)
+        {
+            Operacao novaOperacao = new Operacao();
+            novaOperacao.codigoTransacao = Guid.NewGuid().ToString();
+            novaOperacao.Natureza = natureza;
+            novaOperacao.Data = DateTime.Today;
+            novaOperacao.Valor = valor;
+
+            Operacoes.Add(novaOperacao);
         }
     }
 }
