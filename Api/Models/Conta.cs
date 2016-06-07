@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Api.Models
+namespace Presentation.Models
 {
     public class Conta
     {
