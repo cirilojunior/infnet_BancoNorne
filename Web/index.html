@@ -9,11 +9,27 @@
 <body>
     <h2>Contas</h2>
     <div ng-controller="ContaController">
-        <ul class="unstyled">
-            <li ng-repeat="conta in contas">
-                <span>{{conta.idConta}}</span>
-            </li>
-        </ul>
+        <div ng-show ="isListar">
+            <ul class="unstyled">
+                <li ng-repeat="conta in contas">
+                    <span>{{conta.idConta}}</span>
+                </li>
+            </ul>
+            <button ng-click="iniciarCriacao()">
+                Nova Conta
+            </button>
+            <button ng-click="aprovarConta()">
+                Aprovar
+            </button>
+        </div>
+
+        <div ng-show="!isListar">
+            <form name="myForm" class="my-form">
+                <input type="text" name="input" ng-model="conta.tipo">
+            </form>
+
+        </div>
+
     </div>
 </body>
 </html>
