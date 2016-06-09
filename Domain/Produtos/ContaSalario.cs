@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Produtos
 {
-    class ContaSalario : ContaCorrente
+    public class ContaSalario : ContaCorrente
     {
 
         public PessoaJuridica FontePagadora{ get; set; }

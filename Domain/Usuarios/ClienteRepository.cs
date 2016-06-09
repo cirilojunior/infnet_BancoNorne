@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Usuarios
 {
-    interface ClienteRepository
+    public interface ClienteRepository
     {
         Cliente salvar(Cliente cliente);
         Cliente recuperar(int numero);

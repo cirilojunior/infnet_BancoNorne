@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Usuarios.Contatos
 {
-    class Endereco
+    public class Endereco
     {
 
         public enum UF

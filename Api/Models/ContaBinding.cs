@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Api.Models
+namespace Presentation.Models
 {
-    public class Conta
+    public class ContaBinding
     {
         
         public enum TipoConta
@@ -29,6 +29,11 @@ namespace Api.Models
         public SituacaoCriacaoConta SituacaoCriacao { get; set; }
         public SituacaoConta Situacao { get; set; }
         public decimal Saldo { get; set; }
+
+        public Conta getCliente()
+        {
+            Conta
+        }
 
     }
 }

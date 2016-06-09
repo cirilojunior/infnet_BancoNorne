@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Produtos
 {
-    class ContaEletronicaEspecial : ContaEletronica
+    public class ContaEletronicaEspecial : ContaEletronica
     {
         public decimal LimiteChequeEspecial { get; set; }
         public decimal LimiteUtilizado { get; set; }

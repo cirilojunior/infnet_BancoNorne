@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Produtos
 {
-    interface AdesaoProdutoRepository
+    public interface AdesaoProdutoRepository
     {
         AdesaoProduto salvar(AdesaoProduto adesao);
     }

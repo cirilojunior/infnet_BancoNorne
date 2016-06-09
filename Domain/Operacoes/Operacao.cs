@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Operacoes
 {
-    class Operacao
+    public class Operacao
     {
 
         public enum NaturezaOperacao

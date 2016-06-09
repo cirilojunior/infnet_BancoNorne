@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Usuarios.Contatos
 {
-    class Contato
+    public class Contato
     {
         public string TelefonePrincipal { get; set; }
         public string TelefoneAlternativo { get; set; }

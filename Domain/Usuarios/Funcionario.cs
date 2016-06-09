@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Usuarios
 {
-    class Funcionario
+    public class Funcionario
     {
         private string matricula;
         private string nome;

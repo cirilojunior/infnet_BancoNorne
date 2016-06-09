@@ -1,4 +1,4 @@
-﻿using Api.Models;
+﻿using Presentation.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,21 +6,21 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace Api.Controllers
+namespace Presentation.Controllers
 {
     public class ContaController : ApiController
     {
-        public List<Conta> contas = new List<Conta>();
+        public List<ContaBinding> contas = new List<ContaBinding>();
 
         public ContaController()
         {
-            contas.Add(new Conta { idConta = 1, Tipo = Conta.TipoConta.CORRENTE, SituacaoCriacao = Conta.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = Conta.SituacaoConta.VIGENTE, Saldo = 0 });
-            contas.Add(new Conta { idConta = 2, Tipo = Conta.TipoConta.CORRENTE, SituacaoCriacao = Conta.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = Conta.SituacaoConta.VIGENTE, Saldo = 0 });
-            contas.Add(new Conta { idConta = 3, Tipo = Conta.TipoConta.CORRENTE, SituacaoCriacao = Conta.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = Conta.SituacaoConta.VIGENTE, Saldo = 0 });
-            contas.Add(new Conta { idConta = 4, Tipo = Conta.TipoConta.CORRENTE, SituacaoCriacao = Conta.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = Conta.SituacaoConta.VIGENTE, Saldo = 0 });
+            contas.Add(new ContaBinding { idConta = 1, Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 0 });
+            contas.Add(new ContaBinding { idConta = 2, Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 0 });
+            contas.Add(new ContaBinding { idConta = 3, Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 0 });
+            contas.Add(new ContaBinding { idConta = 4, Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 0 });
         }
 
-        public IEnumerable<Conta> Get()
+        public IEnumerable<ContaBinding> Get()
         {
             return contas;
         }
@@ -36,8 +36,7 @@ namespace Api.Controllers
             return Ok(conta);
         }
 
-        // POST: api/Default
-        public void Post(Conta value)
+        public void Post(ContaBinding value)
         {
             if (value != null)
             {
@@ -45,7 +44,7 @@ namespace Api.Controllers
             }
         }
 
-        public void Put(int id, Conta value)
+        public void Put(int id, ContaBinding value)
         {
             if (id > 0 && value != null)
             {

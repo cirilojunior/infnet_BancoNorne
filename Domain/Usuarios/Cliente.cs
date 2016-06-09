@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Usuarios
 {
-    class Cliente
+    public class Cliente
     {
         private int numero;
         private Pessoa pessoa;

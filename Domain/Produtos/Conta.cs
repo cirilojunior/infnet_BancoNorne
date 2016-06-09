@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Produtos
 {
-    class Conta
+    public class Conta
     {
 
         public enum TipoConta

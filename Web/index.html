@@ -1,31 +1,92 @@
 ﻿<!DOCTYPE html>
 <html ng-app="contaApp">
 <head>
+    <meta charset="utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        ul > li, a {
+            cursor: pointer;
+        }
+    </style>
+
+
     <script src="js/angular.min.js"></script>
     <script src="js/app.js"></script>
-    <title>teste Pedro</title>
-    <meta charset="utf-8" />
+    <title>Banco Norne</title>
 </head>
 <body>
     <h2>Contas</h2>
     <div ng-controller="ContaController">
         <div ng-show ="isListar">
-            <ul class="unstyled">
-                <li ng-repeat="conta in contas">
-                    <span>{{conta.idConta}}</span>
-                </li>
-            </ul>
+
+            <div class="col-lg-12" ng-hide="contas.length == 0">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped toggle-arrow-tiny">
+                        <thead>
+                            <tr>
+                                <th>Número Conta</th>
+                                <th>Nome Cliente</th>
+                                <th>Tipo Conta</th>
+                                <th data-hide="all"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="conta in contas">
+                                <td>
+                                    {{conta.idConta}}
+                                </td>
+                                <td>
+                                    dddd
+                                </td>
+                                <td>
+                                    dddddd
+                                </td>
+                                <td width="140" class="text-center">
+                                    <button ng-click="$event.preventDefault();aprovarConta(conta, $index)">
+                                        Aprovar
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            
             <button ng-click="iniciarCriacao()">
                 Nova Conta
-            </button>
-            <button ng-click="aprovarConta()">
-                Aprovar
             </button>
         </div>
 
         <div ng-show="!isListar">
-            <form name="myForm" class="my-form">
-                <input type="text" name="input" ng-model="conta.tipo">
+            <form name="myForm">
+                <div class="form-group">
+                    <label class="col-md-2">Nome Cliente</label>
+                    <div class="col-md-4">
+                        <input ng-model="contaModel.nome" type="text" class="form-control" placeholder="Nome Cliente" />
+                    </div>
+                </div><br />
+                <div class="form-group">
+                    <label class="col-md-2">CPF Cliente</label>
+                    <div class="col-md-10">
+                        <input ng-model="contaModel.cpf" type="text" class="form-control" placeholder="CPF" />
+                    </div>
+                </div><br />
+                
+                <div class="form-group">
+                    <label class="col-md-2">Tipo Conta</label>
+                    <div class="col-md-10">
+                        <select ng-model="contaModel.tipoString" ng-options="tipo as tipo for tipo in tipos" ng-init="contaModel.tipoString='Conta Corrente'"></select>
+                    </div>
+                </div><br />
+                <div class="form-group">
+                    <label class="col-md-2"></label>
+                    <div class="col-md-4">
+                        <button ng-click="abrirConta()">
+                            Salvar
+                        </button>
+                    </div>
+                </div>
             </form>
 
         </div>

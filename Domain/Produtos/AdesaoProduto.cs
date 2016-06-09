@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Produtos
 {
-    class AdesaoProduto
+    public class AdesaoProduto
     {
         public Produto Produto { get; set; }
         public Cliente Cliente { get; set; }

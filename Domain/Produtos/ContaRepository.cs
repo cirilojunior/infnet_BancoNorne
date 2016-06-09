@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Produtos
 {
-    interface ContaRepository
+    public interface ContaRepository
     {
         List<Conta> listar();
         Conta salvar(Conta conta);

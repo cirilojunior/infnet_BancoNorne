@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{29EF599C-E723-475A-A488-D28DEDEA655C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{E383DD07-443D-4876-9017-DA1FA564CC4E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{29EF599C-E723-475A-A488-D28DEDEA655C} = {29EF599C-E723-475A-A488-D28DEDEA655C}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{C7274FA2-836A-4DBC-A2DD-C857415AA496}"
 EndProject

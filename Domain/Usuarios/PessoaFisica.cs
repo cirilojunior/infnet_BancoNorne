@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Usuarios
 {
-    class PessoaFisica : Pessoa
+    public class PessoaFisica : Pessoa
     {
         public string Cpf { get; set; }
         public string Identidade { get; set; }

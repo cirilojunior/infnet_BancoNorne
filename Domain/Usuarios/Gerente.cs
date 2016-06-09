@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Usuarios
 {
-    class Gerente : Funcionario
+    public class Gerente : Funcionario
     {
         private List<Funcionario> subordinados;
 

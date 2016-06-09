@@ -8,7 +8,7 @@ using Domain.Usuarios;
 
 namespace Domain.Produtos
 {
-    class ContaService
+    public class ContaService
     {
 
         private ContaRepository contaRepository;

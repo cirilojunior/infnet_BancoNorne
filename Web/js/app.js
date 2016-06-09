@@ -1,9 +1,14 @@
 ﻿angular.module('contaApp', [])
   .controller('ContaController', function ($scope, $http) {
 
+      $scope.tipos = ['Conta Poupança', 'Conta Corrente', 'Conta Eletrônica','Conta Salário', 'Conta Especial'];
+
+      //POUPANCA, CORRENTE, ELETRONICA, SALARIO, ESPECIAL_ELETRONICA
+
       $scope.isListar = true;
       $scope.contaModel = {};
       $scope.contas = [];
+      $scope.tipoConta = {};
 
       $scope.listarContas = function () {
           $scope.isListar = true;
@@ -31,9 +36,9 @@
           })
       }
 
-      $scope.aprovarConta = function (value) {
+      $scope.aprovarConta = function (value, index) {
 
-          alert("Aprovou");
+          alert(value);
           /*
           var novaConta = {
               "idConta": 6,

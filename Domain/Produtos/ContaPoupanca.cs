@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Produtos
 {
-    class ContaPoupanca : Conta
+    public class ContaPoupanca : Conta
     {
     }
 }
