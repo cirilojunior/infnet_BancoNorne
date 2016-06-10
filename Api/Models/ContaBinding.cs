@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Produtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,6 @@ namespace Presentation.Models
 {
     public class ContaBinding
     {
-        
         public enum TipoConta
         {
             POUPANCA, CORRENTE, ELETRONICA, SALARIO, ESPECIAL_ELETRONICA
@@ -24,16 +24,13 @@ namespace Presentation.Models
             VIGENTE, ENCERRADA
         }
 
-        public int idConta { get; set; }
+
         public TipoConta Tipo { get; set; }
         public SituacaoCriacaoConta SituacaoCriacao { get; set; }
         public SituacaoConta Situacao { get; set; }
         public decimal Saldo { get; set; }
-
-        public Conta getCliente()
-        {
-            Conta
-        }
-
+        public String codigoConta { get; set; }
+        public String cnpj { get; set; }
+        public double LimiteChequeEspecial { get; set; }
     }
 }

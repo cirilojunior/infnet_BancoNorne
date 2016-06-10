@@ -30,6 +30,7 @@ namespace Domain.Produtos
         public TipoConta Tipo { get; set; }
         public SituacaoCriacaoConta SituacaoCriacao { get; set; }
         public SituacaoConta Situacao { get; set; }
+        public String codigoConta { get; set; }
         public decimal Saldo { get; set; }
         public List<Operacao> Operacoes { get; set; }
 
