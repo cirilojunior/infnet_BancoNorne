@@ -29,12 +29,14 @@
 
           var novaConta = {
               codigoConta: Math.random(),
-              Tipo: 1,
+              Tipo: buscarTipoConta(),
               SituacaoCriacao: 0,
               Situacao: 0,
               Saldo: 0,
-              cnpj: $scope.contaModel.cnpj,
-              LimiteChequeEspecial: Number($scope.contaModel.LimiteChequeEspecial)
+              cnpjFontePagadora: $scope.contaModel.cnpjFontePagadora,
+              LimiteChequeEspecial: Number($scope.contaModel.LimiteChequeEspecial),
+              nomeCliente: $scope.contaModel.nomeCliente,
+              cpf: $scope.contaModel.cpf
           }
 
           $http.post('http://localhost:57339/api/Conta', novaConta).success(function (data) {
@@ -64,14 +66,31 @@
               SituacaoCriacao: 1,
               Situacao: value.Situacao,
               Saldo: value.Saldo,
-              cnpj: $scope.contaModel.cnpj,
-              LimiteChequeEspecial: Number($scope.contaModel.LimiteChequeEspecial)
+              cnpjFontePagadora: value.cnpjFontePagadora,
+              LimiteChequeEspecial: value.LimiteChequeEspecial,
+              nomeCliente: value.nomeCliente,
+              cpf: value.cpf
           }
 
           $http.put('http://localhost:57339/api/Conta/1', novaConta).success(function (data) {
               $scope.listarContas();
           })
       }
+
+      function buscarTipoConta() {
+          if ($scope.contaModel.tipoString == 'Conta Poupança') {
+              return 0;
+          } else if ($scope.contaModel.tipoString == 'Conta Corrente') {
+              return 1;
+          } else if ($scope.contaModel.tipoString == 'Conta Eletrônica') {
+              return 2;
+          } else if ($scope.contaModel.tipoString == 'Conta Salário') {
+              return 3;
+          } else if ($scope.contaModel.tipoString == 'Conta Especial') {
+              return 4;
+          }
+      }
+
 
       $scope.listarContas();
   });

@@ -11,6 +11,6 @@ namespace Domain.Produtos
     {
         List<Conta> listar();
         Conta salvar(Conta conta);
-        Conta recuperar(Cliente cliente);
+        Conta recuperar(String codigoConta);
     }
 }

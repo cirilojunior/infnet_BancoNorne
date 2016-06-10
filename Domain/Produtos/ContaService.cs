@@ -38,22 +38,17 @@ namespace Domain.Produtos
             return contaRepository.salvar(novaConta);
         }
 
-        public AdesaoProduto Aprovar(Produto produto, Cliente cliente)
+        public Conta Aprovar(String codigoConta)
         {
-            Conta conta = contaRepository.recuperar(cliente);
+            Conta conta = contaRepository.recuperar(codigoConta);
             conta.SituacaoCriacao = Conta.SituacaoCriacaoConta.APROVADA;
-            contaRepository.salvar(conta);
+            return contaRepository.salvar(conta);
             
-            AdesaoProduto adesao = new AdesaoProduto();
-            adesao.Produto = produto;
-            adesao.Cliente = cliente;
-            adesao.Data = DateTime.Today;
-            return adesaoProdutoRepository.salvar(adesao);
         }
 
-        public void Reprovar(Produto produto, Cliente cliente)
+        public void Reprovar(String codigoConta)
         {
-            Conta conta = contaRepository.recuperar(cliente);
+            Conta conta = contaRepository.recuperar(codigoConta);
             conta.SituacaoCriacao = Conta.SituacaoCriacaoConta.REPROVADA;
             contaRepository.salvar(conta);
         }

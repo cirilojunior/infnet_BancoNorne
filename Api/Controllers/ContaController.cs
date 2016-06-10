@@ -1,4 +1,6 @@
-﻿using Presentation.Models;
+﻿using Domain.Produtos;
+using Domain.Usuarios;
+using Presentation.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,9 @@ namespace Presentation.Controllers
     public class ContaController : ApiController
     {
         public List<ContaBinding> contas = new List<ContaBinding>();
-
+        private ClienteRepository clienteRepository;
+        private AdesaoProdutoRepository adesaoRepository;
+        private ContaRepository contaRepository;
         public ContaController()
         {
             contas.Add(new ContaBinding { codigoConta = "32123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 0 });
@@ -29,7 +33,11 @@ namespace Presentation.Controllers
         {
             if (value != null)
             {
-                contas.Add(value);
+                PessoaFisica pessoa = new PessoaFisica();
+                pessoa.Nome = value.nomeCliente;
+                pessoa.Cpf = value.cpf;
+                ContaService service = new ContaService(contaRepository, clienteRepository, adesaoRepository);
+                service.Abrir(value.toConta().Tipo, pessoa);
             }
         }
 
@@ -37,7 +45,8 @@ namespace Presentation.Controllers
         {
             if (id > 0 && value != null)
             {
-                contas.Add(value);
+                ContaService service = new ContaService(contaRepository, clienteRepository, adesaoRepository);
+                service.Aprovar(value.codigoConta);
             }
         }
 
