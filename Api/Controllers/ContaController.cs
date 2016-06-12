@@ -12,7 +12,6 @@ namespace Presentation.Controllers
 {
     public class ContaController : ApiController
     {
-        public List<ContaBinding> contas = new List<ContaBinding>();
         private ClienteRepository clienteRepository;
         private AdesaoProdutoRepository adesaoRepository;
         private ContaRepository contaRepository;
@@ -31,7 +30,20 @@ namespace Presentation.Controllers
 
         public IEnumerable<ContaBinding> Get()
         {
-            return contas;
+            List<ContaBinding> cbs = new List<ContaBinding>();
+            List<Conta> contas = contaRepository.listar();
+
+            if (contas != null && contas.Count > 0)
+            {
+                ContaBinding cb = null;
+                foreach (Conta c in contas)
+                {
+                    cb = new ContaBinding(c);
+                    cbs.Add(cb);
+                }
+            }
+            
+            return cbs;
         }
 
         public void Post(ContaBinding value)

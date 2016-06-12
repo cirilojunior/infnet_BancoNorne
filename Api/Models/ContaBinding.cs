@@ -18,17 +18,79 @@ namespace Presentation.Models
 
         public ContaBinding(Conta conta)
         {
-            /*
-            this.Tipo = conta.Tipo;
-            this.SituacaoCriacao = conta.SituacaoCriacao;
-            this.Situacao = conta.Situacao;
+            
+            this.Tipo = getTipoConta(conta.Tipo);
+            this.SituacaoCriacao = getSituacaoCriacao(conta.SituacaoCriacao);
+            this.Situacao = getSituacao(conta.Situacao);
             this.Cliente = conta.Cliente;
             this.Saldo = conta.Saldo;
             this.codigoConta = conta.codigoConta;
-            this.cnpjFontePagadora = conta.cnpjFontePagadora;
-            this.nomeCliente = new PessoaFisica(conta.Cliente.Pessoa);
-            this.cpf = conta.cpf;
-            this.LimiteChequeEspecial = conta.LimiteChequeEspecial;*/
+            PessoaFisica pf = (PessoaFisica)conta.Cliente.Pessoa;
+            this.Nome = pf.Nome;
+            this.Cpf = pf.Cpf;
+
+            this.Identidade = pf.Identidade;
+            this.rendaMensal = pf.rendaMensal;
+            this.TelefonePrincipal = pf.Contato.TelefonePrincipal;
+            this.TelefoneAlternativo = pf.Contato.TelefoneAlternativo;
+            this.Email = pf.Contato.Email;
+            this.Logradouro = pf.Endereco.Logradouro;
+            this.Numero = pf.Endereco.Numero;
+            this.Complemento = pf.Endereco.Complemento;
+            this.Cep = pf.Endereco.Cep;
+            this.Cidade = pf.Endereco.Cidade;
+
+        }
+
+        private SituacaoConta getSituacao(Conta.SituacaoConta situacao)
+        {
+            if (situacao == Conta.SituacaoConta.VIGENTE)
+            {
+                return SituacaoConta.VIGENTE;
+            }
+            else
+            {
+                return SituacaoConta.ENCERRADA;
+            }
+        }
+
+        private SituacaoCriacaoConta getSituacaoCriacao(Conta.SituacaoCriacaoConta situacaoCriacao)
+        {
+            if (situacaoCriacao == Conta.SituacaoCriacaoConta.APROVADA)
+            {
+                return SituacaoCriacaoConta.APROVADA;
+            }
+            else if(situacaoCriacao == Conta.SituacaoCriacaoConta.PENDENTE_APROVACAO)
+            {
+                return SituacaoCriacaoConta.PENDENTE_APROVACAO;
+            }else
+            {
+                return SituacaoCriacaoConta.REPROVADA;
+            }
+        }
+
+        private TipoConta getTipoConta(Conta.TipoConta tipo)
+        {
+            if (tipo == Conta.TipoConta.POUPANCA)
+            {
+                return TipoConta.POUPANCA;
+            }
+            else if (tipo == Conta.TipoConta.CORRENTE)
+            {
+                return TipoConta.CORRENTE;
+            }
+            else if (tipo == Conta.TipoConta.ELETRONICA)
+            {
+                return TipoConta.ELETRONICA;
+            }
+            else if (tipo == Conta.TipoConta.SALARIO)
+            {
+                return TipoConta.SALARIO;
+            }
+            else
+            {
+                return TipoConta.ESPECIAL_ELETRONICA;
+            }
         }
 
         public enum TipoConta
