@@ -8,12 +8,9 @@ namespace Domain.Usuarios
 {
     public class Cliente
     {
-        private int numero;
-        private Pessoa pessoa;
-
         public Cliente(Pessoa pessoa)
         {
-            this.pessoa = pessoa;
+            Pessoa = pessoa;
         }
 
         public Pessoa Pessoa { get; private set; }

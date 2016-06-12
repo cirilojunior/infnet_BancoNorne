@@ -30,11 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -63,18 +72,21 @@
     <Compile Include="Operacoes\Operacao.cs" />
     <Compile Include="Produtos\AdesaoProduto.cs" />
     <Compile Include="Produtos\AdesaoProdutoRepository.cs" />
+    <Compile Include="Produtos\AdesaoProdutoRepositoryDbContext.cs" />
     <Compile Include="Produtos\Conta.cs" />
     <Compile Include="Produtos\ContaCorrente.cs" />
     <Compile Include="Produtos\ContaEletronica.cs" />
     <Compile Include="Produtos\ContaEletronicaEspecial.cs" />
     <Compile Include="Produtos\ContaPoupanca.cs" />
     <Compile Include="Produtos\ContaRepository.cs" />
+    <Compile Include="Produtos\ContaRepositoryDbContext.cs" />
     <Compile Include="Produtos\ContaSalario.cs" />
     <Compile Include="Produtos\ContaService.cs" />
     <Compile Include="Produtos\Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios\Cliente.cs" />
     <Compile Include="Usuarios\ClienteRepository.cs" />
+    <Compile Include="Usuarios\ClienteRepositoryDbContext.cs" />
     <Compile Include="Usuarios\Contatos\Contato.cs" />
     <Compile Include="Usuarios\Contatos\Endereco.cs" />
     <Compile Include="Usuarios\Funcionario.cs" />
@@ -84,6 +96,7 @@
     <Compile Include="Usuarios\PessoaJuridica.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

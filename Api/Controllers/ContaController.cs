@@ -16,8 +16,13 @@ namespace Presentation.Controllers
         private ClienteRepository clienteRepository;
         private AdesaoProdutoRepository adesaoRepository;
         private ContaRepository contaRepository;
+
         public ContaController()
         {
+            clienteRepository = new ClienteRepositoryMYSQL();
+            adesaoRepository = new AdesaoProdutoRepositoryMYSQL();
+            contaRepository = new ContaRepositoryMYSQL();
+
             contas.Add(new ContaBinding { codigoConta = "32123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 0 });
             contas.Add(new ContaBinding { codigoConta = "213123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 23 });
             contas.Add(new ContaBinding { codigoConta = "123123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 213 });

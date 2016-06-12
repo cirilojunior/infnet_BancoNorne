@@ -10,4 +10,16 @@ namespace Domain.Produtos
     {
         AdesaoProduto salvar(AdesaoProduto adesao);
     }
+
+    public class AdesaoProdutoRepositoryMYSQL : AdesaoProdutoRepository
+    {
+        public AdesaoProduto salvar(AdesaoProduto adesao)
+        {
+            var context = new AdesaoProdutoRepositoryDbContext();
+            context.AdesaoProdutos.Add(adesao);
+            context.SaveChanges();
+            return adesao;
+        }
+
+    }
 }
