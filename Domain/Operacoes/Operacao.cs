@@ -8,6 +8,7 @@ namespace Domain.Operacoes
 {
     public class Operacao
     {
+        public long Id { get; set; }
 
         public enum NaturezaOperacao
         {

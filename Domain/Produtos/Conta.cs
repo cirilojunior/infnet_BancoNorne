@@ -10,6 +10,7 @@ namespace Domain.Produtos
 {
     public class Conta
     {
+        public long Id { get; set; }
 
         public enum TipoConta
         {

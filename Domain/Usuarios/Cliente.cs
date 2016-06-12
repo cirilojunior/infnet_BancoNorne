@@ -15,7 +15,6 @@ namespace Domain.Usuarios
 
         public Pessoa Pessoa { get; private set; }
 
-        public long Numero { get; private set; }
-
+        public long Id { get; set; }
     }
 }
