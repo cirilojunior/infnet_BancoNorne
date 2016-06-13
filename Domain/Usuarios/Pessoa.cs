@@ -9,6 +9,7 @@ namespace Domain.Usuarios
 {
     public class Pessoa
     {
+        public long Id { get; set; }
         public Endereco Endereco { get; set; }
         public Contato Contato { get; set; }
     }
