@@ -20,30 +20,13 @@ namespace Domain.Usuarios
         public List<Cliente> listar()
         {
             var context = new ClienteRepositoryDbContext();
-            List<Cliente> lstc = context.Clientes.ToList();
+            List<Cliente> lstc = context.Clientes.Include("Pessoa").ToList();
             return lstc;
         }
 
         public Cliente salvar(Cliente cliente)
         {
             var context = new ClienteRepositoryDbContext();
-
-            /*
-            cliente.Pessoa.Contato = new Contatos.Contato();
-            cliente.Pessoa.Contato.Email = "jose@com.com";
-            cliente.Pessoa.Contato.TelefoneAlternativo = "1111-2222";
-            cliente.Pessoa.Contato.TelefonePrincipal = "3333-4444";
-            cliente.Pessoa.Endereco = new Contatos.Endereco();
-            cliente.Pessoa.Endereco.Cep = "22211-200";
-            cliente.Pessoa.Endereco.Cidade = "Rio de Janeiro";
-            cliente.Pessoa.Endereco.Complemento = "Apt. 802";
-            cliente.Pessoa.Endereco.Estado = Contatos.Endereco.UF.RJ;
-            cliente.Pessoa.Endereco.Logradouro = "Rua Pedro Américo";
-            cliente.Pessoa.Endereco.Numero = "205";
-            ((PessoaFisica)(cliente.Pessoa)).Identidade = "08740185-7";
-            ((PessoaFisica)(cliente.Pessoa)).rendaMensal = 10000.0;
-            */
-
             context.Clientes.Add(cliente);
             context.SaveChanges();
             return cliente;
@@ -54,7 +37,7 @@ namespace Domain.Usuarios
             Pessoa p = new Pessoa();
             Cliente cliente = new Cliente(p);
             var context = new ClienteRepositoryDbContext();
-            var allLines = context.Clientes.ToList();
+            var allLines = context.Clientes.Include("Pessoa").ToList();
             foreach (Cliente c in allLines)
             {
                 if (c.Id == numero)

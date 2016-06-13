@@ -35,14 +35,14 @@ namespace Domain.Produtos
             novaConta.Saldo = 0;
             novaConta.Cliente = novoCliente;
             
-            return contaRepository.salvar(novaConta);
+            return contaRepository.salvar(novaConta, false);
         }
 
         public Conta Aprovar(String codigoConta)
         {
             Conta conta = contaRepository.recuperar(codigoConta);
             conta.SituacaoCriacao = Conta.SituacaoCriacaoConta.APROVADA;
-            return contaRepository.salvar(conta);
+            return contaRepository.salvar(conta, true);
             
         }
 
@@ -50,7 +50,7 @@ namespace Domain.Produtos
         {
             Conta conta = contaRepository.recuperar(codigoConta);
             conta.SituacaoCriacao = Conta.SituacaoCriacaoConta.REPROVADA;
-            contaRepository.salvar(conta);
+            contaRepository.salvar(conta, true);
         }
     }
 }

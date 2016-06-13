@@ -12,5 +12,9 @@ namespace Domain.Usuarios
         public long Id { get; set; }
         public Endereco Endereco { get; set; }
         public Contato Contato { get; set; }
+
+        public Pessoa()
+        {
+        }
     }
 }

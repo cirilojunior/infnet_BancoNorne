@@ -21,11 +21,6 @@ namespace Presentation.Controllers
             clienteRepository = new ClienteRepositorySQLServer();
             adesaoRepository = new AdesaoProdutoRepositorySQLServer();
             contaRepository = new ContaRepositorySQLServer();
-
-            //contas.Add(new ContaBinding { codigoConta = "32123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 0 });
-            //contas.Add(new ContaBinding { codigoConta = "213123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 23 });
-            //contas.Add(new ContaBinding { codigoConta = "123123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 213 });
-            //contas.Add(new ContaBinding { codigoConta = "213123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 42 });
         }
 
         public IEnumerable<ContaBinding> Get()
