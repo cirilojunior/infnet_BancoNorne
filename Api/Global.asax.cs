@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Api.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,7 @@ namespace Presentation
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            GlobalConfiguration.Configuration.Filters.Add(new AuthorizationAttribute());
         }
     }
 }
