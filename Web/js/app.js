@@ -1,7 +1,7 @@
 ﻿angular.module('contaApp', [])
   .controller('ContaController', function ($scope, $http) {
 
-      $scope.tipos = ['Conta Poupança', 'Conta Corrente', 'Conta Eletrônica','Conta Salário', 'Conta Especial'];
+      $scope.tipos = ['Conta Poupança', 'Conta Corrente', 'Conta Eletrônica', 'Conta Salário', 'Conta Especial'];
 
       //POUPANCA, CORRENTE, ELETRONICA, SALARIO, ESPECIAL_ELETRONICA
       $scope.isCNPJ = false;
@@ -24,7 +24,7 @@
           $scope.isListar = false;
       }
 
-      $scope.abrirConta = function (value) {       
+      $scope.abrirConta = function (value) {
 
 
           var novaConta = {
@@ -33,10 +33,21 @@
               SituacaoCriacao: 0,
               Situacao: 0,
               Saldo: 0,
+              Cpf: $scope.contaModel.Cpf,
               cnpjFontePagadora: $scope.contaModel.cnpjFontePagadora,
               LimiteChequeEspecial: Number($scope.contaModel.LimiteChequeEspecial),
-              nomeCliente: $scope.contaModel.nomeCliente,
-              cpf: $scope.contaModel.cpf
+              Nome: $scope.contaModel.Nome,
+              Identidade: $scope.contaModel.Identidade,
+              rendaMensal: Number($scope.contaModel.rendaMensal),
+              TelefonePrincipal: $scope.contaModel.TelefonePrincipal,
+              TelefoneAlternativo: $scope.contaModel.TelefoneAlternativo,
+              Email: $scope.contaModel.Email,
+              Logradouro: $scope.contaModel.Logradouro,
+              Numero: Number($scope.contaModel.Numero),
+              Complemento: $scope.contaModel.Complemento,
+              Cep: $scope.contaModel.Cep,
+              Cidade: $scope.contaModel.Cidade
+
           }
 
           $http.post('http://localhost:57339/api/Conta', novaConta).success(function (data) {
@@ -59,17 +70,27 @@
 
 
       $scope.aprovarConta = function (value, index) {
-         
+
           var novaConta = {
               codigoConta: value.codigoConta,
               Tipo: value.Tipo,
               SituacaoCriacao: 1,
               Situacao: value.Situacao,
               Saldo: value.Saldo,
+              Cpf: value.Cpf,
               cnpjFontePagadora: value.cnpjFontePagadora,
               LimiteChequeEspecial: value.LimiteChequeEspecial,
-              nomeCliente: value.nomeCliente,
-              cpf: value.cpf
+              Nome: value.Nome,
+              Identidade: value.Identidade,
+              rendaMensal: value.rendaMensal,
+              TelefonePrincipal: value.TelefonePrincipal,
+              TelefoneAlternativo: value.TelefoneAlternativo,
+              Email: value.Email,
+              Logradouro: value.Logradouro,
+              Numero: value.Numero,
+              Complemento: value.Complemento,
+              Cep: value.Cep,
+              Cidade: value.Cidade
           }
 
           $http.put('http://localhost:57339/api/Conta/1', novaConta).success(function (data) {

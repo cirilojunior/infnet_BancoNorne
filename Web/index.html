@@ -10,7 +10,7 @@
 <body>
     <h2>Contas</h2>
     <div ng-controller="ContaController">
-        <div ng-show ="isListar">
+        <div ng-show="isListar">
 
             <div class="col-lg-12" ng-hide="contas.length == 0">
                 <div class="table-responsive">
@@ -49,7 +49,7 @@
 
                 </div>
             </div>
-            
+
             <button ng-click="iniciarCriacao()">
                 Nova Conta
             </button>
@@ -60,21 +60,91 @@
                 <div class="form-group">
                     <label class="col-md-2">Nome Ciente</label>
                     <div class="col-md-10">
-                        <input ng-model="contaModel.nomeCliente" type="text" class="form-control" placeholder="Nome" />
+                        <input ng-model="contaModel.Nome" type="text" class="form-control" />
                     </div>
                 </div><br />
 
                 <div class="form-group">
                     <label class="col-md-2">CPF</label>
                     <div class="col-md-10">
-                        <input ng-model="contaModel.cpf" type="text" class="form-control" placeholder="CPF" />
+                        <input ng-model="contaModel.Cpf" type="text" class="form-control" />
                     </div>
                 </div><br />
-                
+
+                <div class="form-group">
+                    <label class="col-md-2">Identidade</label>
+                    <div class="col-md-10">
+                        <input ng-model="contaModel.Identidade" type="text" class="form-control" />
+                    </div>
+                </div><br />
+
+                <div class="form-group">
+                    <label class="col-md-2">Renda Mensal</label>
+                    <div class="col-md-10">
+                        <input ng-model="contaModel.rendaMensal" type="number" class="form-control" />
+                    </div>
+                </div><br />
+
+                <div class="form-group">
+                    <label class="col-md-2">Telefone 1</label>
+                    <div class="col-md-10">
+                        <input ng-model="contaModel.TelefonePrincipal" type="text" class="form-control" />
+                    </div>
+                </div><br />
+
+                <div class="form-group">
+                    <label class="col-md-2">Telefone 2</label>
+                    <div class="col-md-10">
+                        <input ng-model="contaModel.TelefoneAlternativo" type="text" class="form-control" />
+                    </div>
+                </div><br />
+
+                <div class="form-group">
+                    <label class="col-md-2">Email</label>
+                    <div class="col-md-10">
+                        <input ng-model="contaModel.Email" type="text" class="form-control" />
+                    </div>
+                </div><br />
+
+                <div class="form-group">
+                    <label class="col-md-2">Endereço</label>
+                    <div class="col-md-10">
+                        <input ng-model="contaModel.Logradouro" type="text" class="form-control" />
+                    </div>
+                </div><br />
+
+                <div class="form-group">
+                    <label class="col-md-2">Número</label>
+                    <div class="col-md-10">
+                        <input ng-model="contaModel.Numero" type="number" class="form-control" />
+                    </div>
+                </div><br />
+
+                <div class="form-group">
+                    <label class="col-md-2">Complemento</label>
+                    <div class="col-md-10">
+                        <input ng-model="contaModel.Complemento" type="text" class="form-control" />
+                    </div>
+                </div><br />
+
+                <div class="form-group">
+                    <label class="col-md-2">Cep</label>
+                    <div class="col-md-10">
+                        <input ng-model="contaModel.Cep" type="text" class="form-control" />
+                    </div>
+                </div><br />
+
+                <div class="form-group">
+                    <label class="col-md-2">Cidade</label>
+                    <div class="col-md-10">
+                        <input ng-model="contaModel.Cidade" type="text" class="form-control" />
+                    </div>
+                </div><br />
+
                 <div class="form-group">
                     <label class="col-md-2">Tipo Conta</label>
                     <div class="col-md-10">
-                        <select ng-model="contaModel.tipoString" ng-options="tipo as tipo for tipo in tipos" 
+                        <select ng-model="contaModel.tipoString" ng-options="tipo as tipo for tipo in tipos"
                                 ng-init="contaModel.tipoString='Conta Corrente'" ng-change="contaTipoChangeHandler(contaModel.tipoString)"></select>
                     </div>
                 </div><br />

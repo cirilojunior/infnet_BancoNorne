@@ -12,7 +12,6 @@ namespace Presentation.Controllers
 {
     public class ContaController : ApiController
     {
-        public List<ContaBinding> contas = new List<ContaBinding>();
         private ClienteRepository clienteRepository;
         private AdesaoProdutoRepository adesaoRepository;
         private ContaRepository contaRepository;
@@ -23,24 +22,35 @@ namespace Presentation.Controllers
             adesaoRepository = new AdesaoProdutoRepositoryMYSQL();
             contaRepository = new ContaRepositoryMYSQL();
 
-            contas.Add(new ContaBinding { codigoConta = "32123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 0 });
-            contas.Add(new ContaBinding { codigoConta = "213123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 23 });
-            contas.Add(new ContaBinding { codigoConta = "123123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 213 });
-            contas.Add(new ContaBinding { codigoConta = "213123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 42 });
+            //contas.Add(new ContaBinding { codigoConta = "32123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 0 });
+            //contas.Add(new ContaBinding { codigoConta = "213123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 23 });
+            //contas.Add(new ContaBinding { codigoConta = "123123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 213 });
+            //contas.Add(new ContaBinding { codigoConta = "213123", Tipo = ContaBinding.TipoConta.CORRENTE, SituacaoCriacao = ContaBinding.SituacaoCriacaoConta.PENDENTE_APROVACAO, Situacao = ContaBinding.SituacaoConta.VIGENTE, Saldo = 42 });
         }
 
         public IEnumerable<ContaBinding> Get()
         {
-            return contas;
+            List<ContaBinding> cbs = new List<ContaBinding>();
+            List<Conta> contas = contaRepository.listar();
+
+            if (contas != null && contas.Count > 0)
+            {
+                ContaBinding cb = null;
+                foreach (Conta c in contas)
+                {
+                    cb = new ContaBinding(c);
+                    cbs.Add(cb);
+                }
+            }
+            
+            return cbs;
         }
 
         public void Post(ContaBinding value)
         {
             if (value != null)
             {
-                PessoaFisica pessoa = new PessoaFisica();
-                pessoa.Nome = value.nomeCliente;
-                pessoa.Cpf = value.cpf;
+                PessoaFisica pessoa = value.toPessoa();
                 ContaService service = new ContaService(contaRepository, clienteRepository, adesaoRepository);
                 service.Abrir(value.toConta().Tipo, pessoa);
             }
