@@ -11,7 +11,7 @@ namespace Domain.Produtos
         AdesaoProduto salvar(AdesaoProduto adesao);
     }
 
-    public class AdesaoProdutoRepositoryMYSQL : AdesaoProdutoRepository
+    public class AdesaoProdutoRepositorySQLServer : AdesaoProdutoRepository
     {
         public AdesaoProduto salvar(AdesaoProduto adesao)
         {

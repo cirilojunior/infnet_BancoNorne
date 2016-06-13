@@ -10,10 +10,20 @@ namespace Domain.Usuarios
     {
         Cliente salvar(Cliente cliente);
         Cliente recuperar(int numero);
+        List<Cliente> listar();
     }
 
-    public class ClienteRepositoryMYSQL : ClienteRepository
+
+
+    public class ClienteRepositorySQLServer : ClienteRepository
     {
+        public List<Cliente> listar()
+        {
+            var context = new ClienteRepositoryDbContext();
+            List<Cliente> lstc = context.Clientes.ToList();
+            return lstc;
+        }
+
         public Cliente salvar(Cliente cliente)
         {
             var context = new ClienteRepositoryDbContext();

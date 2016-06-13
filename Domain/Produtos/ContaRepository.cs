@@ -14,11 +14,14 @@ namespace Domain.Produtos
         Conta recuperar(String codigoConta);
     }
 
-    public class ContaRepositoryMYSQL : ContaRepository
+    public class ContaRepositorySQLServer : ContaRepository
     {
         public List<Conta> listar()
         {
+            
             var context = new ContaRepositoryDbContext();
+            context.Configuration.LazyLoadingEnabled = false;
+            Console.WriteLine(context.Configuration.LazyLoadingEnabled);
             List<Conta> lstc = context.Contas.ToList();
             return lstc;
         }
