@@ -55,8 +55,11 @@ namespace Presentation.Controllers
         {
             if (id > 0 && value != null)
             {
+                Gerente gerente = new Gerente();
+                gerente.Nome = "Rodrigo Matos";
+                gerente.Matricula = "999666";
                 ContaService service = new ContaService(contaRepository, clienteRepository, adesaoRepository);
-                service.Aprovar(value.codigoConta);
+                service.Aprovar(value.codigoConta, gerente);
             }
         }
 

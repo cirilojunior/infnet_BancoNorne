@@ -38,19 +38,31 @@ namespace Domain.Produtos
             return contaRepository.salvar(novaConta, false);
         }
 
-        public Conta Aprovar(String codigoConta)
+        public Conta Aprovar(String codigoConta, Funcionario funcionario)
         {
-            Conta conta = contaRepository.recuperar(codigoConta);
-            conta.SituacaoCriacao = Conta.SituacaoCriacaoConta.APROVADA;
-            return contaRepository.salvar(conta, true);
-            
+            if (funcionario is Gerente)
+            {
+                Conta conta = contaRepository.recuperar(codigoConta);
+                conta.SituacaoCriacao = Conta.SituacaoCriacaoConta.APROVADA;
+                return contaRepository.salvar(conta, true);
+            }else
+            {
+                throw new Exception("PERMISSION DENIED");
+            }
         }
 
-        public void Reprovar(String codigoConta)
+        public void Reprovar(String codigoConta, Funcionario funcionario)
         {
-            Conta conta = contaRepository.recuperar(codigoConta);
-            conta.SituacaoCriacao = Conta.SituacaoCriacaoConta.REPROVADA;
-            contaRepository.salvar(conta, true);
+            if (funcionario is Gerente)
+            {
+                Conta conta = contaRepository.recuperar(codigoConta);
+                conta.SituacaoCriacao = Conta.SituacaoCriacaoConta.REPROVADA;
+                contaRepository.salvar(conta, true);
+            }
+            else
+            {
+                throw new Exception("PERMISSION DENIED");
+            }
         }
     }
 }
